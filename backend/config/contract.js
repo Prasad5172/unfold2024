@@ -230,7 +230,7 @@ const contractABI = [
 const contractAddress = "0x4754e3A1bfb71413EB557E2fcD3a1515f0822Ea8";
 
 const provider = new ethers.JsonRpcProvider("https://base-sepolia.g.alchemy.com/v2/joXzMSVmB0-d3O0RuMuuswjKMRKvXaWb");
-const wallet = new ethers.Wallet("b687fa5d0a5e4e9c4f493b4dff4beb47245874329ce2a0cc5f4b8bc06e25ed11", provider);
+const wallet = new ethers.Wallet("ADD_YOUR_PRIVATE_KEY", provider);
 const contract = new ethers.Contract(contractAddress, contractABI, wallet);
 
 module.exports = { 

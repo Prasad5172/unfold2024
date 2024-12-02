@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const routes = require('./routes');
 const sequelize = require('./config/database');
-const { Battle, User, Meme, Player, Category, BattleName } = require('./models'); // Add BattleName here
+const { Battle, User, Meme, Player, Category, BattleName } = require('./models'); 
 
 const app = express();
 app.use(cors());
@@ -13,11 +13,8 @@ const PORT = process.env.PORT || 3000;
 
 async function startServer() {
   try {
-    // Test database connection
     await sequelize.authenticate();
     console.log('Database connected successfully.');
-    
-    // Create tables if they don't exist
     await BattleName.sync();
     await sequelize.sync({ force: false }); 
     console.log('Database synchronized');
