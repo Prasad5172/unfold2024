@@ -12,13 +12,29 @@ const Battle = sequelize.define('Battle', {
     allowNull: false,
     unique: true
   },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  category: {
+    type: DataTypes.ENUM('regular_memes', 'dark_memes', 'celebrity_memes', 'political_memes', 'sexist_memes'),
+    allowNull: false
+  },
+  status: {
+    type: DataTypes.ENUM('registration', 'active', 'completed'),
+    defaultValue: 'registration'
+  },
   winner_user_id: {
     type: DataTypes.INTEGER,
-    allowNull: true,
-    references: {
-      model: 'Users',
-      key: 'id'
-    }
+    allowNull: true
+  },
+  registration_ends_at: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
+  battle_ends_at: {
+    type: DataTypes.DATE,
+    allowNull: false
   }
 });
 

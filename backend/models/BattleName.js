@@ -1,28 +1,25 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Meme = sequelize.define('Meme', {
+const BattleName = sequelize.define('BattleName', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  user_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  token_address: {
+  name: {
     type: DataTypes.STRING,
-    allowNull: false
-  },
-  token_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    unique: true
   },
   category: {
     type: DataTypes.ENUM('regular_memes', 'dark_memes', 'celebrity_memes', 'political_memes', 'sexist_memes'),
     allowNull: false
+  },
+  used_at: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
   }
 });
 
-module.exports = Meme;
+module.exports = BattleName;

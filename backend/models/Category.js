@@ -16,7 +16,7 @@ const Category = sequelize.define('Category', {
     }
   },
   type: {
-    type: DataTypes.ENUM('regular_memes', 'dark_memes', 'celebrity_memes', 'political_memes'),
+    type: DataTypes.ENUM('regular_memes', 'dark_memes', 'celebrity_memes', 'political_memes', 'sexist_memes'),
     allowNull: false
   },
   name: {
